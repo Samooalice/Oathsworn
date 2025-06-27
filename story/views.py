@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def chapter_detail(request, number):
+    return render(request, 'chapter_detail.html', {'chapter_number': number})
