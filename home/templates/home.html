@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>오쓰스원 스토리</title>
+    <style>
+        body {
+            font-family: '맑은 고딕', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .chapter-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .chapter-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .chapter-card:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .chapter-card a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>오쓰스원 스토리</h1>
+    <div class="chapter-list">
+        {% for chapter in chapters %}
+            <div class="chapter-card">
+                <a href="{% url 'chapter_detail' chapter.number %}">
+                    챕터 {{ chapter.number }}<br>{{ chapter.title }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
